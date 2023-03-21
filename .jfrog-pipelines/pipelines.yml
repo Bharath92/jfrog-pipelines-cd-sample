@@ -41,7 +41,7 @@ pipelines:
           sign: false
           description: "some random test description"
           inputResources:
-            - name: mvn_build_info_demo
+            - name: build_push_app
               trigger: false
           outputResources:
             - name: release_bundle_demo
