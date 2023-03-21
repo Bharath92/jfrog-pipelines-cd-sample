@@ -27,7 +27,7 @@ resources:
       siteName: "*"
       cityName: "*"
       countryCodes:
-        - "*"     
+        - "CN"     
 
 pipelines:
   - name: CD_Quickstart_demo
