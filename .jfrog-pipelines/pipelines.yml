@@ -2,7 +2,7 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources: 
-  - name: release_bundle
+  - name: release_bundle_demo
     type: ReleaseBundle
     configuration:
       #sourceDistribution: myDist
@@ -10,7 +10,7 @@ resources:
       name: demo_rb
       version: v1.0.0
 
-  - name: signed_bundle
+  - name: signed_bundle_demo
     type: ReleaseBundle
     configuration:
       #sourceDistribution: myDist
@@ -18,7 +18,7 @@ resources:
       name: demo_rb
       version: v1.0.0
 
-  - name: distribution_rules
+  - name: distribution_rules_demo
     type: DistributionRule
     configuration:
       #sourceDistribution: myDist
@@ -30,7 +30,7 @@ resources:
         - "*"     
 
 pipelines:
-  - name: CD_Quickstart
+  - name: CD_Quickstart_demo
     steps:
       - name: bundle
         type: CreateReleaseBundle
@@ -41,10 +41,10 @@ pipelines:
           sign: false
           description: "some random test description"
           inputResources:
-            - name: mvn_build_info
+            - name: mvn_build_info_demo
               trigger: false
           outputResources:
-            - name: release_bundle
+            - name: release_bundle_demo
           releaseNotes:
             syntax: markdown
             content: |
@@ -56,14 +56,14 @@ pipelines:
         type: SignReleaseBundle
         configuration:
           inputResources:
-            - name: release_bundle
+            - name: release_bundle_demo
           outputResources:
-            - name: signed_bundle
+            - name: signed_bundle_demo
 
       - name: distribute
         type: DistributeReleaseBundle
         configuration:
           dryRun: false
           inputResources:
-            - name: signed_bundle
-            - name: distribution_rules 
+            - name: signed_bundle_demo
+            - name: distribution_rules_demo
