@@ -30,7 +30,7 @@ resources:
         - "CN"     
 
 pipelines:
-  - name: distribute_to_edge_nodes
+  - name: distribute_to_edge_nodes_edgeverve
     steps:
       - name: bundle
         type: CreateReleaseBundle
