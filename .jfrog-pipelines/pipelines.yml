@@ -30,7 +30,7 @@ resources:
         - "CN"     
 
 pipelines:
-  - name: CD_Quickstart_demo
+  - name: distribute_to_edge_nodes
     steps:
       - name: bundle
         type: CreateReleaseBundle
